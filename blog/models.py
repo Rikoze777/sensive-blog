@@ -59,7 +59,8 @@ class Comment(models.Model):
     post = models.ForeignKey(
         'Post',
         on_delete=models.CASCADE,
-        verbose_name='Пост, к которому написан')
+        verbose_name='Пост, к которому написан',
+        related_name='comments')
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -75,3 +76,4 @@ class Comment(models.Model):
         ordering = ['published_at']
         verbose_name = 'комментарий'
         verbose_name_plural = 'комментарии'
+
