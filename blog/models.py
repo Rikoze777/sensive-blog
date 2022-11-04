@@ -28,7 +28,7 @@ class PostQuerySet(models.QuerySet):
         ).order_by('-likes_count')
         return popular_posts
 
-    def prefetch_tags(self):
+    def prefetch_tags_with_posts_count(self):
         tags_annotation = Tag.objects.annotate(
             posts_count=Count('posts')
         )
